@@ -23,6 +23,23 @@ function hideNumbers() {
     p.innerText = '';
 }
 
+function guessNumbers() {  
+    do {
+        const input = Number(prompt(`Inserisci un numero (${userNumbers.length + 1})`));
+        pushNotIncluded(userNumbers, input);
+    } while (userNumbers.length < 5);
+
+    console.log(userNumbers);
+
+    let guessedNumbers = [];
+    for (let i = 0; i < randomNumbers.length; i++) {
+        if (randomNumbers[i] === userNumbers[i]) {
+            guessedNumbers.push(userNumbers[i]);
+        } 
+    }
+    console.log(`Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers}`);
+}
+
 /**********
  * Main
  */
@@ -37,5 +54,12 @@ console.log({randomNumbers});
 // Mostro i numeri in pagina
 p.innerText = randomNumbers;
 
+let userNumbers = [];
+
 // Setto un timer che nasconda i numeri
-setTimeout(hideNumbers, 5000);
+setTimeout(hideNumbers, 3000);
+// Setto un timer per il prompt
+setTimeout(guessNumbers, 3100);
+
+
+
