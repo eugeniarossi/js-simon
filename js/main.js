@@ -23,7 +23,9 @@ function generateRandomNums(arrayLength, min, max) {
 
 // Funzione per nascondere i numeri random
 function hideNumbers() {
-    p.innerText = '';
+    for (let i = 0; i < liElements.length; i++) {
+        liElements[i].classList.add('remove');
+    } 
 }
 
 // Funzione che chiede i numeri all'utente, li confronta. Stampa quanti e quali numeri sono stati indovinati.
@@ -33,34 +35,47 @@ function guessNumbers() {
         const input = Number(prompt(`Inserisci un numero (${userNumbers.length + 1})`));
         pushNotIncluded(userNumbers, input);
     } while (userNumbers.length < 5);
-
     console.log(userNumbers);
-
+    
     let correctNumbers = [];
-
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < liElements.length; i++) {
         if (randomNumbers[i] === userNumbers[i]) {
             correctNumbers.push(userNumbers[i]);
+        } else {
+            liElements[i].classList.add('wrong');
         }
+        liElements[i].classList.remove('remove');
     }
-
     console.log(`Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers}`);
+}
+
+// Funzione per creare elementi della lista e aggiungerli a ul
+function myCreateElements() {
+    for (let i = 0; i < randomNumbers.length; i++) {
+        const li = document.createElement('li');
+        li.innerText = randomNumbers[i];
+        fragment.append(li);
+    }
+    ul.append(fragment);
+    return ul;
 }
 
 /**********
  * Main
  */
 
-// Salvo p in una variabile
-let p = document.querySelector('p');
+// Salvo gli li in una variabile
+const ul = document.querySelector('ul');
+const fragment = document.createDocumentFragment();
 
 // Genero 5 numeri random e li salvo in un array
 let randomNumbers = generateRandomNums(5, 1, 99);
 // Stampo i numeri random in console
 console.log({randomNumbers});
-
-// Mostro i numeri in pagina
-p.innerText = randomNumbers;
+// Creo gli li e stampo i numeri random
+const newElements = myCreateElements();
+// Seleziono tutti gli li
+const liElements = document.querySelectorAll('li');
 
 // Setto un timer che nasconda i numeri
 setTimeout(hideNumbers, 3000);

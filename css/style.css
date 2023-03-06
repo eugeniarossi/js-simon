@@ -1,0 +1,50 @@
+/***********
+RESET
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(10, 21, 23);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5625rem;
+}
+
+/***********
+MAIN
+*/
+
+ul {
+    list-style: none;
+    color: white;
+    height: 100vh;
+    max-width: 43.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+li {
+    background-color: rgba(24, 50, 54, 0.5);
+    width: 6.25rem;
+    height: 6.25rem;
+    margin: 1.25rem;
+    border-radius: .9375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove {
+    display: none;
+}
+
+.wrong {
+    text-decoration: line-through;
+    background-color: rgb(164, 0, 0, 0.5);
+}
