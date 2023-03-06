@@ -13,6 +13,6 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 4. Salvo i numeri inseriti dall'utente in un array, finchè non contiene 5 numeri (while)
 
-5. Inizializzo una variabile con valore 0
+5. Definisco un array vuoto in cui inserisco i numeri indovinati
 
-6. Definisco un ciclo for in cui confronto i due array, per ogni numero indovinato dall'utente incremento la variabile e stampo il numero in pagina 
+6. Definisco un ciclo for in cui confronto i due array, aggiungo ogni numero indovinato dall'utente nell'array vuoto
